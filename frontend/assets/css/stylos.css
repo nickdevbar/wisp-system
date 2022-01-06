@@ -1,0 +1,240 @@
+/*global*/
+@media screen and (min-width:240px) and (max-width:960px) {
+    .responsive {
+        display: block !important;
+    }
+
+    .half{
+        width: 100% !important;
+    }
+
+    .center{
+        display:block;
+    }
+}
+
+.half{
+    width:50%;
+}
+
+.center{
+    display:grid;
+    justify-items: center;
+}
+
+.left{
+    text-align: left;
+}
+
+.right{
+    text-align: right;
+}
+
+.img_sm {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: baseline;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+.img-border {
+    border: 1px solid #fff;
+    padding: 3px;
+    border-radius: 5px;
+}
+/*Company.php*/
+div.company__section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:20px;
+}
+
+@media screen and (min-width:240px) and (max-width:960px) {
+    div.company__section {
+        display: block !important;
+    }
+}
+
+/*Suspender.php*/
+
+.suspender__select {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr;
+    padding: 10px;
+    align-items: baseline;
+}
+
+/*segmento*/
+
+div.gat{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 0.1fr 1fr;
+        grid-gap: 10px;
+        align-items: baseline;
+}
+
+div.gat2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    align-items: baseline;
+}
+
+@media screen and (min-width:240px) and (max-width:960px) {
+    div.gat2 {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
+/*-----------exportar-------------*/
+
+.servers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.exp-seg {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 20px;
+    border-top: 2px solid #ccc;
+    border-top: 2px solid #ccc;
+    padding: 10px;
+}
+
+.bl {
+    width: 100%;
+}
+
+.seg {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    padding: 10px;
+}
+
+/*graficas*/
+
+.two-tables {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+}
+
+div.two-tables table {
+    text-align:center;
+}
+
+/*perfil cliente*/
+
+div.client-data{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-gap:20px;
+}
+
+div.contrato-cards{
+    border-bottom: 1px solid #ccc;
+    padding:3px;
+    align-items: baseline;
+}
+
+div.both-graphs{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+img.graph{
+    width: 100%;
+}
+
+@media screen and (min-width:240px) and (max-width:960px) {
+    div.both-graphs{
+        display:block;
+    }
+
+    div.card{
+        display:block !important;
+    }
+}
+
+/*Registrar Pago*/
+
+div.fac_section {
+    display: grid;
+    grid-template-columns: 0.8fr 2fr;
+}
+
+div.com_logo {
+    width: 30%;
+    border: 2px solid #4e73df;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+div.fac_items {
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+    border: 1px solid #ccc;
+    padding: 6px;
+    align-items: baseline;
+}
+
+div.fac_items p {
+    margin: 0 !important;
+}
+
+div.exit-btn{
+    text-align: right;
+}
+
+
+/*Recibo Pago*/
+
+.company_pago {display: grid;grid-template-columns: 1fr 2fr;}
+
+div.fac_section_pago{
+    width: 100%;
+}
+
+div.com_logo_pago{
+    
+        width: 40%;
+        border: 2px solid #4e73df;
+        padding: 20px;
+        border-radius: 10px;
+    
+}
+
+@media screen and (min-width:240px) and (max-width:960px) {
+    div.com_logo_pago{
+    
+        width: 100%;
+        border: 2px solid #4e73df;
+        padding: 20px;
+        border-radius: 10px;
+    
+}
+}
+
+div.fac_items_pagos {
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+    
+    padding: 6px;
+    align-items: baseline;
+}
+
+div.list-grup {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+div.exit-btn-pago{
+    display:grid;
+    grid-template-columns:1fr 3fr;  
+}

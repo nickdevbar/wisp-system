@@ -1,0 +1,98 @@
+@font-face {
+  font-family: SourceSansPro;
+  src: url(SourceSansPro-Regular.ttf);
+}
+
+@page{
+    margin-top: 0.5cm;
+    margin-bottom: 0.5cm;
+    margin-left: 1cm;
+    margin-right: 0.5cm;
+}
+
+a {
+  color: #0087C3;
+  text-decoration: none;
+}
+
+body {
+  /*position: relative;*/
+  width: 21cm;
+  height: 29.7cm; 
+  /*margin: 0 auto;*/ 
+  color: #000;
+  background: #FFFFFF; 
+  font-family: Arial, sans-serif; 
+  font-size: 14px; 
+  font-family: SourceSansPro;
+}
+
+img#logo {
+  width: 80px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.text-de{
+  padding:0px !important;
+}
+
+.contrato{
+  border-top: 1px solid #ccc;
+  text-align: justify;
+  font-size: 78%;
+  padding:0% !important;
+  border-bottom: 1px solid #ccc;
+}
+
+td.contrato{
+  text-align: justify;
+}
+
+table td h4{
+  color: #000;
+  text-align: center
+}
+
+.firma{
+  text-align: center;
+  padding:0% !important;
+}
+
+.text-ce-huella{
+  border:1px solid #000;
+  padding-right:35px;
+  padding-bottom:75px;
+  margin-right: 30px;
+
+}
+
+.text-iz{
+  text-align: right;
+}
+.text-ce{
+  text-align: center;
+}
+.text-ce, .text-iz{
+  padding:0px !important;
+}
+
+.text-del{
+  text-align: center;
+}
+
+.text-de{
+  text-align: left;
+}
+
+h4{
+  text-align: center;
+  color:#000;
+}
+
+

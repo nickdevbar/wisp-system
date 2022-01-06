@@ -1,0 +1,19 @@
+*{
+    margin:0%;
+    padding:0%;
+}
+
+@page{
+    margin-top: 0cm;
+    margin-bottom: 0cm;
+    margin-left: 1cm;
+    margin-right: 1cm;
+}
+
+.text-iz{
+    text-align:left;
+}
+
+.text-de{
+    text-align:right;
+}

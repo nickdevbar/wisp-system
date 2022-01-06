@@ -1,0 +1,85 @@
+@page{
+	margin: 0cm 0cm;
+}
+
+html{
+	margin: 0px;
+}
+
+body{
+	margin: 0px;
+}
+table { white-space-collapse:collapse; border-collapse:collapse; }  
+table tr td, table tr th { padding: 0px; margin:1px; vertical-align:middle; }
+
+table.bordered tr{border: 1px solid black;}   
+table.bordered td{border: 1px solid black;}
+	.border_arriba{
+		border-collapse: none;
+	}
+.principal{
+
+	border-color:#000;
+	border-collapse:collapse;
+}
+
+
+
+.text-iz{
+	text-align: left;
+
+}
+.text-de{
+	text-align:right;
+}
+.text-ce{
+	text-align:center;
+}
+.text-rojo {
+ color: red;
+}
+
+.text-recibo{
+	font-size: 7px;
+}
+
+.text-listado{
+	font-size: 12px;
+}
+
+.casillas {
+  border: black 1px solid;
+}
+.text-recto {
+text-align-last: center;
+}
+input {
+  width: 13px;
+  height: 13px;
+  padding: 0;
+  margin:0;
+  vertical-align: bottom;
+  position: relative;
+  top: -1px;
+  *overflow: hidden;
+}
+.linea{
+	  border-bottom: 1px solid #999;
+}
+
+.celda{
+	background-color: #CEECF5;
+	text-align: center;
+}
+.interlineado{
+	line-height: 1.2; font-size: 1em;
+}
+.contrato{
+	text-align: justify;
+}
+
+.huella{
+	border: black 1px solid;
+	margin: 25px;
+  padding: 30px;
+}

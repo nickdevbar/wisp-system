@@ -1,0 +1,1 @@
+<?php echo "WISP LITE 1.0" ?>

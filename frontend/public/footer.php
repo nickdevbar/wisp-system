@@ -1,0 +1,1 @@
+<?php echo "INTERCOD - &copy". date("Y") ?>
