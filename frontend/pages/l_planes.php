@@ -76,7 +76,7 @@ if (isset($_SESSION["cod_usu"])) {
                                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                                         <h5 class="m-b-10">Planes</h5>
 
-                                        <a href="javascript:void(0);" data-toggle="modal" data-target="#add_planes" onclick="carga_ajax('1','add_planes','../modal/modal_add_planes.php');" class="d-none d-sm-inline-block btn btn-success shadow-sm"><i class="fas fa-plus-square fa-sm text-white-50"></i> Agregar Plan</a>
+                                        <a href="javascript:void(0);" data-toggle="modal" data-target="#add_planes" onclick="carga_ajax('1','add_planes','../modal/modal_add_planes.php');" class="d-sm-inline-block btn btn-success shadow-sm"><i class="fas fa-plus-square fa-sm text-white-50"></i> Agregar Plan</a>
                                     </div>
                                 </div>
                             </div>
