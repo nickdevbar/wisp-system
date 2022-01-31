@@ -7,7 +7,7 @@ class utilidad {
 	private $nom_ser="localhost"; //Nombre del Servidor
 	private $usu_ser="root"; //Usuario del Servidor
 	private $cla_ser="12345678"; //Clave del Servidor
-	private $nom_bda="sistema"; //Conexion de la base de datos
+	private $nom_bda="wisplite"; //Conexion de la base de datos
 	public  $que_dba; //query que quiero ejecutar
 	public  $resultado;
 	public $puntero; // sirve para apuntar a una fila luego de un select

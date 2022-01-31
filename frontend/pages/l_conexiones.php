@@ -77,7 +77,7 @@ if (isset($_SESSION["cod_usu"])) {
                                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                                         <h5 class="m-b-10">Routers</h5>
 
-                                        <a href="javascript:void(0);" data-toggle="modal" data-target="#add_router" onclick="carga_ajax('1','add_router','../modal/modal_add_router.php');" class="d-none d-sm-inline-block btn btn-success shadow-sm"><i class="fas fa-plus-square fa-sm text-white-50"></i> Agregar Router</a>
+                                        <a href="javascript:void(0);" data-toggle="modal" data-target="#add_router" onclick="carga_ajax('1','add_router','../modal/modal_add_router.php');" class=" d-sm-inline-block btn btn-success shadow-sm"><i class="fas fa-plus-square fa-sm text-white-50"></i> Agregar Router</a>
                                     </div>
                                 </div>
                             </div>

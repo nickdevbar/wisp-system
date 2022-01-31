@@ -36,7 +36,7 @@ if (isset($_SESSION["cod_usu"])) {
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" onclick="crearMan();">Crear Factura</button>
+        <button type="button" class="btn btn-primary" onclick="crearMan();">Agregar Mantenimiento</button>
       </div>
     </div>
 
