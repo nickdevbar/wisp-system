@@ -76,10 +76,8 @@ require_once("utilidad.class.php");
 			nom_usu = '".$this->nom_usu."',
 			ape_usu = '".$this->ape_usu."',
 			usu_user = '".$this->usu_user."',
-			fec_usu = '".$this->fec_usu."',
 			tel_usu = '".$this->tel_usu."',
 			roles_cod_rol = '".$this->roles_cod_rol."'
-
 			WHERE cod_usu = '".$this->cod_usu."'
 			AND company_cod_company = '".$_SESSION['company']."';";
 			echo "1";

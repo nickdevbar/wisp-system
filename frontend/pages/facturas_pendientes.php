@@ -110,7 +110,7 @@ if (isset($_SESSION["cod_usu"])) {
                                                     <td><a href="./perfil_cliente.php?contrato=<?php echo $arreglo['cod_contratos'];?>"><?php echo $arreglo['num_contrato'];?></a> - <?php echo $arreglo['nom_cli']; ?></td>
                                                     <td><?php echo $arreglo['nom_plan']; ?></td>
                                                     <td><?php echo $arreglo['mes_fac']; ?></td>
-                                                    <td><?php echo $obj_factura->pesos($arreglo['pre_plan']); ?></td>
+                                                    <td><?php echo $obj_factura->pesos($arreglo['mon_ded_fac']); ?></td>
                                                     <td><?php echo $obj_factura->formatearSoloFecha($arreglo['fec_cre_fac']); ?></td>
                                                     <td>
                                                        <a href="./registrar_pago.php?contrato=<?php echo $arreglo['cod_contratos'] ?>&cod_fac=<?php echo $arreglo['cod_fac']; ?>" class="btn btn-sm btn-success"><i class="fas fa-dollar-sign"></i></a>

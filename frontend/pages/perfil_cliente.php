@@ -72,7 +72,7 @@ if (isset($_SESSION["cod_usu"])) {
 
     <!-- vendor css -->
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/stylOS.css">
+    <link rel="stylesheet" href="../assets/css/stylos.css">
 
     <!-- SELECT2 -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />

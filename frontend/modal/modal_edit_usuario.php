@@ -72,12 +72,11 @@ if (isset($_SESSION["cod_usu"])) {
         let ape = $("#apelli").val();
         let tel = $("#telefo").val();
         let use = $("#user").val();
-        let pas = $("#pass").val();
         let niv = $("#nivel").val();
 
-        if (nom != "" && ape != "" && tel != "" && use != "" && pas != "") {
+        if (nom != "" && ape != "" && tel != "" && use != "") {
 
-          console.log(nom + "/" + ape + "/" + tel + "/" + use + "/" + pas + "/" + niv);
+          console.log(nom + "/" + ape + "/" + tel + "/" + use + "/" + niv);
 
           dataString = "cod_usu=" + cod + "&&nom_usu=" + nom + "&&ape_usu=" + ape + "&&usu_user=" + use + "&&roles_cod_rol=" + niv + "&&tel_usu=" + tel + "&&accion=editUsuario";
 
