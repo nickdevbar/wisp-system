@@ -108,17 +108,17 @@ if (isset($_SESSION["cod_usu"])) {
 
                                     <div><strong>Dirección</strong> <textarea id="dir" style="resize:none;" placeholder="Av. Venezuela" class="form-control"></textarea></div>
                                     <div><strong>Punto de Referencia</strong> <textarea id="pun" style="resize:none;" placeholder="Cerca de..." class="form-control"></textarea></div>
-                                    <div><strong>Sector:</strong>
+                                    <!-- <div><strong>Sector:</strong>
                                         <select name="" id="sec" class="form-control">
                                             <option value="">-----</option>
 
-                                            <?php $obj_company->puntero = $obj_company->sector();
-                                            while (($sec = $obj_company->extraer_dato()) > 0) { ?>
+                                            <?php //$obj_company->puntero = $obj_company->sector();
+                                            //while (($sec = $obj_company->extraer_dato()) > 0) { ?>
                                                 <option value="<?php echo $sec['cod_sector']; ?>"><?php echo $sec['nom_sector']; ?></option>
-                                            <?php } ?>
+                                            <?php //} ?>
 
                                         </select>
-                                    </div>
+                                    </div> -->
 
                                     <br>
 
@@ -237,12 +237,12 @@ if (isset($_SESSION["cod_usu"])) {
                 let ema = $('#ema').val();
                 let dir = $('#dir').val();
                 let pun = $('#pun').val();
-                let sec = $('#sec').val();
+                //let sec = $('#sec').val();
 
-                dataString = "tipo_cli=" + tip + "&&ced_cli=" + ced + "&&nom_cli=" + nom + "&&tel_cli=" + tel + "&&tel2_cli=" + tel2 + "&&ema_cli=" + ema + "&&dir_cli=" + dir + "&&pun_ref_cli=" + pun + "&&sector_cod_sector=" + sec + "&&accion=addCliente";
+                dataString = "tipo_cli=" + tip + "&&ced_cli=" + ced + "&&nom_cli=" + nom + "&&tel_cli=" + tel + "&&tel2_cli=" + tel2 + "&&ema_cli=" + ema + "&&dir_cli=" + dir + "&&pun_ref_cli=" + pun + /* "&&sector_cod_sector=" + sec + */ "&&accion=addCliente";
                 console.log(dataString);
 
-                if (tip == "" || ced == "" || nom == "" || tel == "" || tel2 == "" || ema == "" || dir == "" || pun == "" || sec == "") {
+                if (tip == "" || ced == "" || nom == "" || tel == "" || tel2 == "" || ema == "" || dir == "" || pun == "" /* || sec == "" */) {
                     Swal.fire(
                         'Campos Vacios!',
                         '',
@@ -267,7 +267,7 @@ if (isset($_SESSION["cod_usu"])) {
                             $('#ema').val("");
                             $('#dir').val("");
                             $('#pun').val("");
-                            $('#sec').val("");
+                            //$('#sec').val("");
                             $('#tel2').val("");
                         }
                     });

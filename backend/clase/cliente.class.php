@@ -17,7 +17,6 @@ require_once("funciones_api.class.php");
 		public $ema_cli;
 		public $dir_cli;
 		public $pun_ref_cli;
-		public $sector_cod_sec;
 
 		public $contrato;
 		public $fecha_corte;
@@ -109,7 +108,6 @@ require_once("funciones_api.class.php");
 				dir_cli,
 				pun_ref_cli,
 				estatus_clientes_cod_est_cli,
-				sector_cod_sector,
 				company_cod_company)
 				VALUES (
 				'".$this->nom_cli."',
@@ -122,7 +120,6 @@ require_once("funciones_api.class.php");
 				'".$this->dir_cli."',
 				'".$this->pun_ref_cli."',
 				'3',
-				'".$this->sector_cod_sector."',
 				'".$_SESSION['company']."'); ";
 
 				echo $this->que_dba;
@@ -144,7 +141,7 @@ require_once("funciones_api.class.php");
 
 		public function perfil_cliente()
 		{
-			$this->que_dba = "SELECT * FROM contratos c, clientes cl, detalles_contratos dc, ips ip, planes p, fecha_corte fc, routers r, tipo_instalacion ti, usuarios u, estatus e, sector s 
+			$this->que_dba = "SELECT * FROM contratos c, clientes cl, detalles_contratos dc, ips ip, planes p, fecha_corte fc, routers r, tipo_instalacion ti, usuarios u, estatus e
 	WHERE c.clientes_cod_cli = cl.cod_cli
 	AND c.routers_cod_router = r.cod_router
 	AND c.fecha_corte_cod_fec_corte = fc.cod_fec_corte
@@ -154,7 +151,6 @@ require_once("funciones_api.class.php");
 	AND dc.ips_cod_ip = ip.cod_ip
 	AND dc.planes_cod_plan = p.cod_plan
 	AND cl.estatus_clientes_cod_est_cli = e.cod_est
-	AND cl.sector_cod_sector = s.cod_sector
 	AND c.company_cod_company = '" . $_SESSION['company'] . "'
 	AND c.cod_contratos = '".$this->cod_contratos."' ;";
 
@@ -163,12 +159,11 @@ require_once("funciones_api.class.php");
 
 		public function detalleContrato()
 		{
-			$this->que_dba = "SELECT * FROM contratos c, clientes cl, fecha_corte fc, routers r, tipo_instalacion ti, sector s 
+			$this->que_dba = "SELECT * FROM contratos c, clientes cl, fecha_corte fc, routers r, tipo_instalacion ti
 			WHERE c.clientes_cod_cli = cl.cod_cli
 			AND c.routers_cod_router = r.cod_router
 			AND c.fecha_corte_cod_fec_corte = fc.cod_fec_corte
 			AND c.tipo_instalacion_cod_tipo_ins = ti.cod_tipo_ins
-			AND cl.sector_cod_sector = s.cod_sector
 			AND c.company_cod_company = '" . $_SESSION['company'] . "'
 			AND cl.cod_cli ='".$this->cod_cli."' ;";
 
@@ -232,8 +227,7 @@ require_once("funciones_api.class.php");
 			tel2_cli='".$this->tel2_cli."',
 			ema_cli='".$this->ema_cli."',
 			dir_cli='".$this->dir_cli."',
-			pun_ref_cli='".$this->pun_ref_cli."',
-			sector_cod_sector='".$this->sector_cod_sec."'
+			pun_ref_cli='".$this->pun_ref_cli."'
 			WHERE cod_cli = '".$this->cod_cli."'; ";
 
 			$new_name = 'Contrato N ' . $this->contrato . ' ' . $this->nom_cli;
@@ -365,8 +359,7 @@ public function editarEstudio(){
 	tipo_cli = '".$this->tipo_cli."',
 	ced_cli = '".$this->ced_cli."',
 	dir_cli = '".$this->dir_cli."',
-	pun_ref_cli = '".$this->pun_ref_cli."',
-	sector_cod_sector = '".$this->sector_cod_sector."'
+	pun_ref_cli = '".$this->pun_ref_cli."'
 
 	WHERE cod_cli = '".$this->cod_cli."'; ";
 	
@@ -401,12 +394,7 @@ return $this->ejecutar();
 
 }
 
-	public function sector(){
 
-		$this->que_dba="SELECT * FROM sector";
-	return $this->ejecutar();
-
-}
 
 public function tipo(){
 
@@ -473,9 +461,8 @@ public function persona(){
 
 public function estudioEdit(){
 
-	$this->que_dba="SELECT * FROM clientes cl, sector s
+	$this->que_dba="SELECT * FROM clientes cl
 	WHERE cl.cod_cli = '".$this->cod_cli."'
-	AND s.cod_sector = cl.sector_cod_sector
 	AND company_cod_company ='".$_SESSION['company']."';";
 	return $this->ejecutar();
 }
@@ -652,75 +639,9 @@ public function completarContrato(){
 		return $this->ejecutar();
 
 	}
-		public function modificar_cliente(){
-
-			$ok=$this->que_dba="UPDATE  clientes SET
-			tipo='".$this->tipo."',
-			cedula='".$this->cedula."',
-			nombres='".$this->nombres."',
-			telef='".$this->telef."',
-			telef2='".$this->telef2."',
-			email='".$this->email."'
-			WHERE idclientes='".$this->idclientes."'; ";
-		 $this->ejecutar();
-
-			
-
-		if($ok== true){	
-			$this->que_dba="UPDATE  datos_habitacion SET
-			direccion='".$this->direccion."',
-			punto_referencia='".$this->punto_referencia."',
-			sector_cod_sec='".$this->cod_sec."'
-			WHERE clientes_idclientes='".$this->idclientes."'; ";
-		return $this->ejecutar();
-		}
-
 		
 
-	}
-
-	public function modificar_todo(){
-
-		$ok=$this->que_dba="UPDATE  clientes SET
-			tipo='".$this->tipo."',
-			cedula='".$this->cedula."',
-			nombres='".$this->nombres."',
-			telef='".$this->telef."',
-			telef2='".$this->telef2."',
-			email='".$this->email."'
-			WHERE idclientes='".$this->idclientes."'; ";
-		 $this->ejecutar();
-
-			$new_name = 'Contrato N ' . $this->contrato . ' ' . $this->nombres;
-
-			/* $obj_api = new funciones_api;
-			$obj_api->nom = $new_name;
-			$obj_api->ip = $this->ip_contrato;
-
-			$obj_api->ip_router_api = $this->ip_api;
-			$obj_api->login_api = $this->lo_api;
-			$obj_api->password_api = $this->pa_api;
-			$obj_api->port_api = $this->po_api;
-			$obj_api->interfaz_api = $this->in_api;
-			$obj_api->blacklist = $this->bl_api;
-
-			$obj_api->asignar_valor_api();
-			$obj_api->connect();
-			$obj_api->nombre();
-			$obj_api->nombre_arp();
-			$obj_api->nombre_suspendidos(); */
-
-		if($ok== true){	
-			$this->que_dba="UPDATE  datos_habitacion SET
-			direccion='".$this->direccion."',
-			punto_referencia='".$this->punto_referencia."',
-			sector_cod_sec='".$this->cod_sec."'
-			WHERE clientes_idclientes='".$this->idclientes."'; ";
-		return $this->ejecutar();
-		}
 	
-
-	}
 
 		//Nuevos
 
@@ -848,36 +769,7 @@ public function completarContrato(){
 			return $this->ejecutar();
 		}
 
-		public function listarPorSector()
-		{
-
-			$this->que_dba = "SELECT 
-			clientes.*, 
-			datos_habitacion.*, 
-			estudios.*, 
-			contratos.*, 
-			detalles_contratos.*,
-			ips.*, 
-			planes.*
-			FROM 
-			   clientes,
-			   datos_habitacion,
-			   estudios,
-			   contratos,
-			   detalles_contratos,
-			   ips,
-			   planes
-			   WHERE clientes.idclientes=datos_habitacion.clientes_idclientes
-			   AND datos_habitacion.iddatos_habitacion=estudios.datos_habitacion_iddatos_habitacion
-			   AND estudios.idestudios=contratos.estudios_idestudios
-			   AND contratos.idcontratos=detalles_contratos.contratos_idcontratos
-			   AND detalles_contratos.planes_idplanes=planes.idplanes
-			   AND detalles_contratos.ips_idips=ips.idips
-			   AND  contratos.estatus_idestatus = '" . $this->estado . "'
-			   AND datos_habitacion.sector_cod_sec = '".$this->sector."'; ";
-
-			return $this->ejecutar();
-		}
+		
 
 	public function query_cliente_simple(){
 	
@@ -895,65 +787,7 @@ public function completarContrato(){
 
 	}
 
-	public function filtrar(){
-		
-			$filtro1=($this->cedula!="")?" * FROM clientes WHERE cedula='$this->cedula'":"";
-			$filtro3=($this->idclientes!="")?" clientes.*, datos_habitacion.* FROM clientes, datos_habitacion
-			 WHERE
-			 clientes.idclientes=datos_habitacion.clientes_idclientes
-			 AND clientes.idclientes='$this->idclientes'":"";
-			$filtro2=($this->contrato!="")?" 
-			clientes.*,
-			datos_habitacion.*, 
-			estudios.*,
-			contratos.*,
-			sector.*,
-			estatus.*
-    	FROM 
-		    clientes,
-		    datos_habitacion,
-		    estudios,
-		    contratos,
-		    sector,
-		    estatus
-			    WHERE clientes.idclientes=datos_habitacion.clientes_idclientes
-			    AND datos_habitacion.iddatos_habitacion=estudios.datos_habitacion_iddatos_habitacion
-			    AND estudios.idestudios=contratos.estudios_idestudios
-			    AND datos_habitacion.sector_cod_sec=sector.cod_sec
-			    AND contratos.estatus_idestatus=estatus.idestatus
-			    AND contratos.idcontratos='".$this->contrato."';":"";
-			
-			$filtro4=($this->texto!="")?" 
-			clientes.*, 
-			datos_habitacion.*, 
-			estudios.*, 
-			contratos.*, 
-			detalles_contratos.*,
-			ips.*, 
-			planes.*
-				FROM 
-			clientes,
-			datos_habitacion, 
-			estudios, 
-			contratos,
-			detalles_contratos,
-			ips,
-			planes
-   				WHERE 
-   			clientes.idclientes=datos_habitacion.clientes_idclientes
-			AND datos_habitacion.iddatos_habitacion=estudios.datos_habitacion_iddatos_habitacion
-			AND estudios.idestudios=contratos.estudios_idestudios
-			AND contratos.idcontratos=detalles_contratos.contratos_idcontratos
-			AND detalles_contratos.planes_idplanes=planes.idplanes
-			AND detalles_contratos.ips_idips=ips.idips
-			AND contratos.estatus_idestatus = '1'
-			AND clientes.nombres LIKE '%".$this->texto."%'; ":"";
-			
-			
-			
-    $this->que_dba="SELECT $filtro1 $filtro2 $filtro3 $filtro4;"; 
-		return $this->ejecutar();
-	}
+	
 
 		public function cambio_estudio()
 		{
@@ -1062,17 +896,7 @@ public function completarContrato(){
 			return $this->ejecutar();
 		}
 
-		public function mostrarSector()
-		{
-
-			$this->que_dba = "SELECT 
-			*
-			FROM 
-			   sector
-			   WHERE cod_sec = '".$this->sector."'; ";
-
-			return $this->ejecutar();
-		}
+		
 
 		public function buscarServer()
 		{

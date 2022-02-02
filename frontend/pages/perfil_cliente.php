@@ -169,15 +169,15 @@ if (isset($_SESSION["cod_usu"])) {
                                         <input class="form-control" disabled type="text" placeholder="+57" id="te2" value="<?php echo $cliente['tel2_cli']; ?>">
                                     </div>
 
-                                    <div><strong>Sector:</strong><select disabled name="" id="sec" class="form-control">
-                                            <option value="<?php echo $cliente['cod_sector']; ?>"> --><?php echo $cliente['nom_sector']; ?><-- </option>
+                                    <!-- <div><strong>Sector:</strong><select disabled name="" id="sec" class="form-control">
+                                            <option value="<?php echo $cliente['cod_sector']; ?>"> --<?php echo $cliente['nom_sector']; ?>-- </option>
 
-                                                    <?php $obj_cliente->puntero = $obj_cliente->sector();
-                                                    while (($sec = $obj_cliente->extraer_dato()) > 0) { ?>
+                                                    <?php //$obj_cliente->puntero = $obj_cliente->sector();
+                                                    //while (($sec = $obj_cliente->extraer_dato()) > 0) { ?>
                                             <option value="<?php echo $sec['cod_sector']; ?>"> <?php echo $sec['nom_sector']; ?> </option>
-                                        <?php } ?>
+                                        <?php //} ?>
 
-                                        </select></div>
+                                        </select></div> -->
                                     <div><strong>Dirección:</strong><textarea disabled name="" id="dir" class="form-control" placeholder="Av, Calle, Ubicación" style="resize:none;" rows="2"><?php echo $cliente['dir_cli']; ?></textarea></div>
                                     <div><strong>Punto De Referencia:</strong><textarea disabled name="" id="pun" class="form-control" placeholder="Por Tales...." style="resize:none;" rows="3"><?php echo $cliente['pun_ref_cli']; ?></textarea></div>
                                     <br>
