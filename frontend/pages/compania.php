@@ -82,7 +82,7 @@ if (isset($_SESSION["cod_usu"])) {
                                 <div class="company__section">
 
                                     <div>
-                                        <div style="text-align:center;"><img src="../assets/images/logos/<?php echo $emprise['logo_company']; ?>" style="border:2px solid #4e73df;padding:10px;border-radius:30px;" id="logo" width="30%" alt=""></div>
+                                        <div style="text-align:center;"><img src="../img/logo/<?php echo $emprise['logo_company']; ?>" style="border:2px solid #4e73df;padding:10px;border-radius:30px;" id="logo" width="30%" alt=""></div>
                                         <input type="file" class="form-control" id="file" onchange="vistaPrevia();">
                                     </div>
 

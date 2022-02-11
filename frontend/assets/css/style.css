@@ -18369,9 +18369,9 @@ strong {
 }
 
 /* Example modals */
-.modal {
+/* .modal {
     z-index: 1072;
-}
+} */
 
 .modal .popover,
   .modal .tooltip {
@@ -18379,7 +18379,7 @@ strong {
 }
 
 .modal-backdrop {
-    z-index: 1071;
+    /* z-index: 1071; */
 }
 
 .bd-example-modal {

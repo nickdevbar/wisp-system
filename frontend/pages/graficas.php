@@ -251,7 +251,7 @@ if (isset($_SESSION["cod_usu"])) {
                                 <br>
                                 <!---------------------------------------------------------->
                                 <div class="two-tables responsive">
-                                    <div class="table-responsive">
+                                    <!-- <div class="table-responsive">
                                         <strong>Clientes Por Sector.</strong>
                                         <table class="table table-bordered" width="100%" cellspacing="0">
                                             <thead class="thead-dark">
@@ -261,19 +261,19 @@ if (isset($_SESSION["cod_usu"])) {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php $obj_graficas->puntero = $obj_graficas->listaSector();
-                                                while (($arreglo = $obj_graficas->extraer_dato()) > 0) {
+                                                <?php //$obj_graficas->puntero = $obj_graficas->listaSector();
+                                                //while (($arreglo = $obj_graficas->extraer_dato()) > 0) {
                                                 ?>
                                                     <tr>
                                                         <td><?php echo $arreglo["nom_sector"]; ?></td>
                                                         <td><?php echo $arreglo["total"]; ?></td>
 
                                                     </tr>
-                                                <?php }
+                                                <?php //}
                                                 ?>
                                             </tbody>
                                         </table>
-                                    </div>
+                                    </div> -->
 
                                     <div class="table-responsive">
                                         <strong>Clientes Por Segmento.</strong>

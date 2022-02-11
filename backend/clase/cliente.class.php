@@ -230,7 +230,7 @@ require_once("funciones_api.class.php");
 			pun_ref_cli='".$this->pun_ref_cli."'
 			WHERE cod_cli = '".$this->cod_cli."'; ";
 
-			$new_name = 'Contrato N ' . $this->contrato . ' ' . $this->nom_cli;
+			$new_name = 'Contrato N ' . $this->num_con . ' ' . $this->nom_cli;
 
 			$obj_api = new funciones_api;
 			$obj_api->nom = $new_name;
@@ -272,6 +272,7 @@ require_once("funciones_api.class.php");
 		$obj_api->nombres = $this->nom;
 		$obj_api->planes = $this->planes;
 		$obj_api->contrato = $this->contrato;
+		$obj_api->num_contrato = $this->num_contrato;
 		$obj_api->ip_contrato = $this->ip_contrato;
 
 		$obj_api->ip_router_api = $this->ip_api;

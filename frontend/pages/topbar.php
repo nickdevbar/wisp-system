@@ -38,7 +38,7 @@ if (isset($_SESSION["cod_usu"])) {
 
                 
                     
-                    <img class="com-img " src="../assets/images/logos/<?php echo $emprise['logo_company'] ?>" alt="" style="padding:10px;border-radius:20px;" width="30%">
+                    <img class="com-img " src="../img/logo/<?php echo $emprise['logo_company'] ?>" alt="" style="padding:10px;border-radius:20px;" width="30%">
                    <h5 class="text-white mt-2"><?php echo $emprise['razon_social'] ?></h5>
                    
                 

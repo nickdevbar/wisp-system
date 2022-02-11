@@ -610,6 +610,15 @@ if (isset($_SESSION["cod_usu"])) {
             });
         </script>
 
+        <!-- InputMask MAC -->
+    <script src="../assets/inputmask/dist/jquery.inputmask.js"></script>
+    <script src="../assets/inputmask/dist/bindings/inputmask.binding.js"></script>
+    <script src="../assets/inputmask/dist/bindings/inputmask.binding.js"></script>
+    <script src="../assets/inputmask/lib/extensions/inputmask.extensions.js"></script>
+    <script>
+            $('#mac').inputmask("mac");
+        </script>
+
     <!-- Codigo de Funcionamiento -->
 
     <script>
@@ -739,7 +748,7 @@ if (isset($_SESSION["cod_usu"])) {
                     Swal.fire({
                         title: '',
                         text: '',
-                        imageUrl: '../assets/images/mantenimiento/' + foto,
+                        imageUrl: '../img/mantenimiento/' + foto,
                         imageWidth: 5000,
                         imageHeight: 500,
                         imageAlt: 'Custom image',
@@ -859,11 +868,12 @@ if (isset($_SESSION["cod_usu"])) {
                 let sec = $('#sec').val();
                 let dir = $('#dir').val();
                 let pun = $('#pun').val();
+                let num = '<?php echo $cliente['num_contrato']; ?>';
 
-                datas = "ip_contrato=<?php echo $cliente['ip_contrato']; ?>" + "&&contrato=<?php echo $cliente['cod_contratos']; ?>" + "&&cod_cli=" + cod + "&&nom_cli=" + nom + "&&tel_cli=" + te1 + "&&tel2_cli=" + te2 + "&&ema_cli=" + ema + "&&tipo_cli=" + tip + "&&ced_cli=" + ced + "&&dir_cli=" + dir + "&&pun_ref_cli=" + pun + "&&sector_cod_sec=" + sec + "&&accion=editar";
+                datas = "ip_contrato=<?php echo $cliente['ip_contrato']; ?>" + "&&contrato=<?php echo $cliente['cod_contratos']; ?>" + "&&cod_cli=" + cod + "&&nom_cli=" + nom + "&&tel_cli=" + te1 + "&&tel2_cli=" + te2 + "&&ema_cli=" + ema + "&&tipo_cli=" + tip + "&&ced_cli=" + ced + "&&dir_cli=" + dir + "&&pun_ref_cli=" + pun + "&&num_con=" + num + "&&accion=editar";
                 console.log(datas);
 
-                if (cod == "" || tip == "" || ced == "" || nom == "" || ema == "" || te1 == "" || te2 == "" || sec == "" || dir == "" || pun == "") {
+                if (cod == "" || tip == "" || ced == "" || nom == "" || ema == "" || te1 == "" || te2 == "" || dir == "" || pun == "") {
                     Swal.fire(
                         'Campos Vacios!',
                         'Debes llenar todos los campos!',
@@ -896,8 +906,9 @@ if (isset($_SESSION["cod_usu"])) {
                 let dia = $('#dia').val();
                 let mac = $('#mac').val();
                 let pla = $('#pla').val();
+                let num = '<?php echo $cliente['num_contrato']; ?>';
 
-                datas = "nom=<?php echo $cliente['nom_cli']; ?>" + "&&ip_contrato=<?php echo $cliente['ip_contrato']; ?>" + "&&contrato=" + cod + "&&fecha_corte=" + dia + "&&tipo_instalacion=" + ins + "&&mac=" + mac + "&&planes=" + pla + "&&accion=editaContrato";
+                datas = "nom=<?php echo $cliente['nom_cli']; ?>" + "&&ip_contrato=<?php echo $cliente['ip_contrato']; ?>" + "&&contrato=" + cod + "&&fecha_corte=" + dia + "&&tipo_instalacion=" + ins + "&&mac=" + mac + "&&planes=" + pla + "&&num_contrato=" + num + "&&accion=editaContrato";
 
                 console.log(datas);
 
@@ -958,25 +969,31 @@ if (isset($_SESSION["cod_usu"])) {
                 let mac_det = '';
                 let planes = '';
 
+                let new_tip = $("#ins option:selected").text();
+                let new_dia = $("#dia option:selected").text();
+                let new_mac = $("#mac").val();
+                let new_pla = $("#pla option:selected").text();
+
                 //console.log(old_tip+" "+old_dia+" "+old_mac+" "+old_pla);
+                console.log(new_tip+" "+new_dia+" "+new_mac+" "+new_pla);
 
                 if (old_tip != tipo) {
-                    instalacion = 'Tipo Instalación-><?php echo $cliente['nom_tipo_ins'] ?>//';
+                    instalacion = 'Tipo Instalación De-><?php echo $cliente['nom_tipo_ins'] ?> A: '+new_tip+', ';
                 }
 
                 if (old_dia != fecha) {
-                    dia_corte = 'Fecha Corte-><?php echo $cliente['dia_fec_corte'] ?>//';
+                    dia_corte = 'Fecha Corte De-><?php echo $cliente['dia_fec_corte'] ?> A: '+new_dia+', ';
                 }
 
                 if (old_mac != mac) {
-                    mac_det = 'MAC-><?php echo $cliente['mac_det_con'] ?>//';
+                    mac_det = 'MAC De-><?php echo $cliente['mac_det_con'] ?> A: '+new_mac+', ';
                 }
 
                 if (old_pla != plan) {
-                    planes = 'Plan-><?php echo $cliente['nom_plan'] ?>//';
+                    planes = 'Plan De-><?php echo $cliente['nom_plan'] ?> A: '+new_pla+', ';
                 }
 
-                mensaje = 'Se modifico el contrato, valores antes: ' + instalacion + dia_corte + mac_det + planes;
+                mensaje = 'Se modifico el contrato, valores antes y despues: ' + instalacion + dia_corte + mac_det + planes;
                 console.log(mensaje);
 
                 entry = "des_aud=" + mensaje + "&&contratos_cod_contratos=<?php echo $cliente['cod_contratos']; ?>&&accion=auditoriaContrato";

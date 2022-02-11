@@ -253,6 +253,7 @@ if (isset($_SESSION['cod_usu'])) {
         public function arp_antena()
         {
             echo "conecto";
+
             $old_ip = $this->old_ip;
             $new_ip = $this->new_ip;
             $mac_ip = $this->mac_ip;
@@ -696,7 +697,9 @@ if (isset($_SESSION['cod_usu'])) {
         public function arp()
         {
             ///// CAMBIO MAC
-            $cliente = "Contrato N " . $this->contrato . " " . $this->nombres;
+            $cliente = "Contrato N " . $this->num_contrato . " " . $this->nombres;
+
+            
 
             $this->write("/ip/arp/getall", false);
             $this->write('?address=' . $this->ip_contrato, false);

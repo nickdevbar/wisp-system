@@ -67,7 +67,7 @@ public $idcompany;
 	public function total_recaudado_mensual(){
 
 			$this->que_dba="SELECT MonthName(fecha_creacion) AS mes,
-			YEAR(fecha_creacion) AS actual, 
+					YEAR(fecha_creacion) AS actual, 
                     count(*) AS total_pagos, 
                     SUM(monto) AS total_recaudado 
                     FROM pagos 
