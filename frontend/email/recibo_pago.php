@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="./recibo.css">
+<!-- <link rel="stylesheet" href="./recibo.css"> -->
 <?php
 
 if(!session_id())
@@ -42,8 +42,9 @@ $mail->addAddress($factura['ema_cli'], $factura['nom_cli']);     //Add a recipie
 
 
 echo $mensaje='
+<div style="margin:0 !important;padding:0 !important;font-family:Arial,Helvetica,sans-serif;">
 <h1><strong>Hola, '.$factura["nom_cli"].'</strong></h1>
-<div class="cli">
+<div class="cli" style="text-align:center;">
 <p><strong>Recibo # <span style="color: #e74a3b;">'.$factura["num_factura"].'</span></strong></p>
 <p><strong>Recibo Generado <span style="color: #e74a3b;">'.$obj_company->formatearFechaPrimero($factura["fec_cre_fac"]).'</span></strong></p>
 <p><strong>Recibo Pagado <span style="color: #e74a3b;">'.$obj_company->formatearFechaPrimero($factura["fec_pag_fac"]).'</span></strong></p>
@@ -57,18 +58,17 @@ echo $mensaje='
 
 <table style="border-collapse: collapse; width: 100%; height: 36px;" border="1">
 <tbody>
-<tr class="thead">
-<td style="width: 33.3333%; text-align: center; height: 18px;"><span style="color: #5a5c69;">
-<strong>ITEM</strong></span></td>
-<td style="width: 33.3333%; text-align: center; height: 18px;"><span style="color: #5a5c69;"><strong>DESCRIPCIÓN</strong></span></td>
-<td style="width: 33.3333%; text-align: center; height: 18px;"><span style="color: #5a5c69;"><strong>PRECIO</strong></span></td>
+<tr class="thead" style="background-color:#4e73df;height:30px;">
+<td style="width: 33.3333%; text-align: center; height: 18px;"><span style="color: #ffffff;"><strong>ITEM</strong></span></td>
+<td style="width: 33.3333%; text-align: center; height: 18px;"><span style="color: #ffffff;"><strong>DESCRIPCIÓN</strong></span></td>
+<td style="width: 33.3333%; text-align: center; height: 18px;"><span style="color: #ffffff;"><strong>PRECIO</strong></span></td>
 </tr>
 <tr class="tbody">
-<td style="width: 33.3333%; height: 18px; text-align: center;">1</td>
-<td style="width: 33.3333%; height: 18px; text-align: center;">'.$factura["obs_pag_fac"].'</td>
-<td style="width: 33.3333%; height: 18px; text-align: center;">$'.number_format($factura["mon_pag_fac"], 0, '', '.').'</td>
+<td style="width: 33.3333%; height: 40px; text-align: center;">1</td>
+<td style="width: 33.3333%; height: 40px; text-align: center;">'.$factura["obs_pag_fac"].'</td>
+<td style="width: 33.3333%; height: 40px; text-align: center;">$'.number_format($factura["mon_pag_fac"], 0, '', '.').'</td>
 </tr>
-<tr style="height: 30px;">
+<tr style="height: 35px;">
 <td><b>Monto Cancelado:</b></td>
 <td colspan="2" style="text-align:right;">$'.number_format($factura["mon_pag_fac"], 0, '', '.').'</td>
 
@@ -77,7 +77,7 @@ echo $mensaje='
 </table>
 
 
-<div class="terms">
+<div class="terms" style="text-align:center;">
 <p><strong><span style="color: #e74a3b;">NOTA:</span></strong> Recibo no valido como Factura Fiscal.</p>
 <p><strong>Gracias Por Preferirnos.<br>
 <h2 style="color: #e74a3b;">Cuando no necesite del servicio por viaje u/o otro motivo, por favor notificar al proveedor para suspender el servicio y no generar cobros de mensualidad.</h2></strong></p>
@@ -95,6 +95,7 @@ echo $mensaje='
 <p style="text-align: center;">Web:<strong> <a href="http://'.$empresa["fanpage_company"].'" target="_black">'.$empresa["fanpage_company"].'</a></strong></p>
 
 <p style="text-align: center;">Email: <strong>'.$empresa["ema_company"].'</strong></p>
+</div>
 </div>';
 //Content
 $mail->isHTML(true);                                  //Set email format to HTML
@@ -102,7 +103,7 @@ $mail->Subject = 'Recibo de Pago #'.$factura['num_factura'];
 $mail->Body    = $mensaje;
 $mail->AltBody = 'Recibo Entregado...';
 
-if (!$mail->send())
+        if (!$mail->send())
           {
           	echo "Error al enviar el E-Mail: ".$mail->ErrorInfo;
           }

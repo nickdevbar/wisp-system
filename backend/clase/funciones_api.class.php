@@ -136,6 +136,7 @@ if (isset($_SESSION['cod_usu'])) {
             $this->write('=action=accept', false); // comentario
             $this->write('=chain=input', false); // comentario
             $this->write('=dst-port=' . $this->port_api, false); // comentario
+            $this->write('=comment=Reglas WISPLITE', false); // comentario
             $this->write('=protocol=tcp', true); // comentario
             $READ = $this->read(false);
             $ARRAY = $this->parseResponse($READ);
@@ -143,16 +144,16 @@ if (isset($_SESSION['cod_usu'])) {
             $this->write("/ip/firewall/filter/add", false);
             $this->write('=action=accept', false); // comentario
             $this->write('=chain=forward', false); // comentario
-            $this->write('=comment=Reglas WISPLITE - Activos', false); // comentario
-            $this->write('=dst-address-list=' . $this->whitelist_api, true); // comentario
+            $this->write('=comment=Reglas WISPLITE - '.$this->whitelist, false); // comentario
+            $this->write('=dst-address-list=' . $this->whitelist, true); // comentario
             $READ = $this->read(false);
             $ARRAY = $this->parseResponse($READ);
 
             $this->write("/ip/firewall/filter/add", false);
             $this->write('=action=drop', false); // comentario
             $this->write('=chain=forward', false); // comentario
-            $this->write('=comment=Reglas WISPLITE - Inactivos', false); // comentario
-            $this->write('=src-address-list=!' . $this->whitelist_api, true); // comentario
+            $this->write('=comment=Reglas WISPLITE - '. $this->blacklist, false); // comentario
+            $this->write('=src-address-list=!' . $this->blacklist, true); // comentario
             $READ = $this->read(false);
             $ARRAY = $this->parseResponse($READ);
 

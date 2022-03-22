@@ -156,6 +156,7 @@ require_once("funciones_api.class.php");
 			$obj_api->password_api = $this->pa_api;
 			$obj_api->port_api = $this->po_api;
 			$obj_api->blacklist = $this->bl_api;
+			$obj_api->whitelist = $this->wl_api;
 
 			$obj_api->asignar_valor_api();
 			$obj_api->connect();
